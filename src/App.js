@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import {useState} from 'react';
+import {Message} from './Message.js';
+import {Daytime} from './Daytime.js'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default function App() {
+  let [count, setCount] = useState(1)
+  let [isMorning, setMorning] = useState(true)
 
-export default App;
+  return (
+    <div className={`${isMorning ? 'App-day' : 'App-night'}`}>
+      <header className="App-header"> 
+     
+      {/* The Counter has to match the counter in the Message.js file      */}
+  <Message counter={count}/> 
+  <button onClick={
+    // ()=> alert("Not updated yet, Checkback later")
+    ()=> setCount(++count)
+    }
+    >Counter Update</button>
+      </header>
+{/* <br/> */}
+<body className="App-body">
+      
+    <Daytime isMorning={isMorning}/>
+    
+    <button onClick={
+    // ()=> alert("Not updated yet, Checkback later")
+    ()=> setMorning(!isMorning)
+    }
+    >Time Shift</button>
+    </body>
+    </div>
+    
+  )
+
+};
