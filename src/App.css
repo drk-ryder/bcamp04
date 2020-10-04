@@ -13,12 +13,12 @@
   }
 }
 .App-day{
-  background-color: teal;
+  background-color: rgb(110, 197, 197);
   min-height: 20vh;
 }
 
 .App-night{
-  background-color: seagreen;
+  background-color: lightgray;
   min-height: 20vh;
 }
 .App-header {
